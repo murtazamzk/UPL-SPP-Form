@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Field, Control, Label, Input, Textarea, Select, Checkbox, Radio, Help, InputFile } from 'react-bulma-components/lib/components/form';
+import { Field, Input, InputFile, Select, Checkbox, Label, Control, Textarea } from 'react-bulma-components/lib/components/form';
+import { Columns } from 'react-bulma-components';
 import Button from 'react-bulma-components/lib/components/button'
 
 export default class reqForm extends Component {
@@ -8,17 +9,30 @@ export default class reqForm extends Component {
         super(props);
         this.state = {
             projectName : "",
-            region : "",
-            productionPlan : "",
-            scLead : [],
+            region : "Automobile",
+            productionPlan:'Sunflower - Bolivia - Winter - Selling period - November - October (+1)',
+            sclead : [
+                ['Saleable Inventory / Parent Seed availability',false],
+                ['Productivity',false],
+                ['Recovery',false],
+                ['COGM',false]
+            ],
             spFile : false,
             commments : ""
         }
     }
 
-    onChange(fieldName,value){
+    onChangeInput(fieldName,e){
         this.setState({
-            [fieldName] : value
+            [fieldName] : e.target.value
+        });
+    }
+
+    onChangeChkBox(chkBoxkey,itemIndex){
+        let checkBoxArr = this.state[chkBoxkey];
+        checkBoxArr[itemIndex][1] = !checkBoxArr[itemIndex][1];
+        this.setState({
+            [chkBoxkey] : checkBoxArr
         });
     }
 
@@ -30,13 +44,13 @@ export default class reqForm extends Component {
                     <Field>
                         <Label>Project Name</Label>
                         <Control>
-                            <Input id="pname" value={this.state.projectName} onChange={(value) => this.onChange('projectName',value)} placeholder="Project Name" />
+                            <Input id="pname" value={this.state.projectName} onChange={e => this.onChangeInput('projectName',e)} placeholder="Project Name" />
                         </Control>
                     </Field>
                     <Field>
                         <Label>Region</Label>
                         <Control>
-                            <Select>
+                            <Select value={this.state.region} onChange={e => this.onChangeInput('region',e)}>
                                 <option>Automobile</option>
                                 <option>Automobile 2</option>
                                 <option>Automobile 3</option>
@@ -44,19 +58,22 @@ export default class reqForm extends Component {
                         </Control>
                     </Field>
                     <Field>
-                        <Label>Production Plan</Label>
+                        <Label>production Plan</Label>
                         <Control>
-                            <Checkbox>Saleable Inventory / Parent Seed availability</Checkbox>
+                            <Select value={this.state.productionPlan} onChange={e => this.onChangeInput('productionPlan',e)}>
+                                <option>Sunflower - Bolivia - Winter - Selling period - November - October (+1)</option>
+                                <option>Sunflower - Bolivia - Winter - Selling period - November - October (+2)</option>
+                                <option>Sunflower - Bolivia - Winter - Selling period - November - October (+3)</option>
+                            </Select>
                         </Control>
-                        <Control>
-                            <Checkbox>Productivity</Checkbox>
-                        </Control>
-                        <Control>
-                            <Checkbox>Recovery</Checkbox>
-                        </Control>
-                        <Control>
-                            <Checkbox>COGM</Checkbox>
-                        </Control>
+                    </Field>
+                    <Field>
+                        <Label>SC LEAD check points</Label>
+                        {this.state.sclead.map((value,index) => 
+                            <Control key={index} className={value[1] ? 'checked' : ''}>
+                                <Checkbox value={value[0]} checked={value[1]} onChange={() => this.onChangeChkBox('sclead',index)}>{value[0]}</Checkbox>
+                            </Control>
+                        )}
                     </Field>
                     <Field>
                         <Label>SPP File</Label>
@@ -66,12 +83,12 @@ export default class reqForm extends Component {
                         <Label>Comments</Label>
                         <Textarea></Textarea>
                     </Field>
-                    <Field kind="group">
+                    <Field kind="group" className="btn-wrapper">
                         <Control>
-                            <Button color="transparent" className="transparent">Cancel</Button>
+                            <Button className="transparent">Cancel</Button>
                         </Control>
                         <Control>
-                            <Button color="primary"  className="primary">Submit</Button>
+                            <Button color="primary"  className="primary">Submit Request</Button>
                         </Control>
                     </Field>
                 </form>
