@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>UPL - SPP Approval Process</title>
+</head>
+
+<body cz-shortcut-listen="true">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="container container">
+            <div class="columns is-multiline">
+                <div class="sidebar column is-one-quarter">
+                    <p>Sidebar</p>
+                </div>
+                <div class="content column is-three-quarters">
+                    <div class="columns is-multiline">
+                        <div class="column is-half">
+                            <div class="reqForm">
+                                <h2>Create New Request</h2>
+                                <form>
+                                    <div class="field"><label class="label">Project Name</label>
+                                        <div class="control"><input class="input" id="pname" type="text"
+                                                placeholder="Project Name" value=""></div>
+                                    </div>
+                                    <div class="field"><label class="label">Region</label>
+                                        <div class="control">
+                                            <div class="select"><select>
+                                                    <option>Automobile</option>
+                                                    <option>Automobile 2</option>
+                                                    <option>Automobile 3</option>
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="field"><label class="label">production Plan</label>
+                                        <div class="control">
+                                            <div class="select"><select>
+                                                    <option>Sunflower - Bolivia - Winter - Selling period - November -
+                                                        October (+1)</option>
+                                                    <option>Sunflower - Bolivia - Winter - Selling period - November -
+                                                        October (+2)</option>
+                                                    <option>Sunflower - Bolivia - Winter - Selling period - November -
+                                                        October (+3)</option>
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="field"><label class="label">SC LEAD check points</label>
+                                        <div class="control"><label class="checkbox"><input type="checkbox"
+                                                    value="Saleable Inventory / Parent Seed availability">Saleable
+                                                Inventory / Parent Seed availability</label></div>
+                                        <div class="control"><label class="checkbox"><input type="checkbox"
+                                                    value="Productivity">Productivity</label></div>
+                                        <div class="control"><label class="checkbox"><input type="checkbox"
+                                                    value="Recovery">Recovery</label></div>
+                                        <div class="control"><label class="checkbox"><input type="checkbox"
+                                                    value="COGM">COGM</label></div>
+                                    </div>
+                                    <div class="field"><label class="label">SPP File</label>
+                                        <div class="file"><label class="file-label"><input type="file"
+                                                    class="file-input" value=""><span class="file-cta"><span
+                                                        class="file-label">Choose a file...</span></span></label></div>
+                                    </div>
+                                    <div class="field"><label class="label">Comments</label><textarea class="textarea"
+                                            name="" rows="4" placeholder=""></textarea></div>
+                                    <div class="field btn-wrapper is-grouped">
+                                        <div class="control"><button class="transparent button"
+                                                tabindex="0">Cancel</button></div>
+                                        <div class="control"><button class="primary is-primary button"
+                                                tabindex="0">Submit Request</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <p>Comments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
