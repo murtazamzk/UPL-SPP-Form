@@ -134,3 +134,64 @@ body{
         }
     }
 }
+
+.comments{
+    &-wrap{
+        margin-top: 30px;
+        padding-left: 20px;
+        padding-right: 50px;
+        h2{
+            font-size: 15px;
+            font-weight: normal;
+            padding-bottom: 20px;
+            color: #5C5C5C;
+            border-bottom: 1px solid #E2E5EC;
+        }
+    }
+    &-list{
+        ul{
+            li{
+                display: flex;
+                list-style: none;
+                padding-bottom: 20px;
+                position: relative;
+                &:before{
+                    content:" ";
+                    position: absolute;
+                    top:50px;
+                    left:23px;
+                    width:5px;
+                    height:calc(100% - 50px);
+                    background: #EBEDF2;
+                }
+                &:last-child{
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.comment{
+    flex:1;
+    margin-top: 10px;
+    &-avatar{
+        margin-right: 15px;
+        width:46px;
+        img{
+            
+        }
+    }
+    &-date{
+        font-size: 13px;
+        line-height: 13px;
+        color: #5C5C5C;
+    }
+    &-text,&-author{
+        font-size: 13px;
+        line-height: 18px;
+        color: #6E747C;
+    }
+}
